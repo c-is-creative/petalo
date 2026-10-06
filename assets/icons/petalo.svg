@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <title>PETALO</title>
+  <rect width="256" height="256" rx="42" fill="#211d18"/>
+  <g fill="#e8e1d3" fill-rule="evenodd">
+    <path d="M106 57a49 57 0 1 1 0 114a49 57 0 1 1 0-114Zm0 8a34 49 0 1 0 0 98a34 49 0 1 0 0-98Z"/>
+    <path d="M151 57a64 76 0 1 1 0 152a64 76 0 1 1 0-152Zm0 8a47 68 0 1 0 0 136a47 68 0 1 0 0-136Z"/>
+  </g>
+</svg>
