@@ -38,3 +38,5 @@ html[lang=en] h1,html[lang=es] h1{letter-spacing:.015em;font-size:clamp(40px,4.7
 html[lang="es"] .name-disclosure [data-t="nameTitle"]{font-weight:600}
 
 html[lang="es"] .kit-disclosure [data-t="kitsLabel"]{font-weight:600}
+
+.purchase .purchase-uses{margin:22px 0 24px;padding:0;border:0}.purchase .purchase-uses .eyebrow{font-size:10px;margin:0 0 10px}.purchase .purchase-uses ul{grid-template-columns:1fr;gap:3px}.purchase .purchase-uses li{font-size:13px;line-height:1.8}
