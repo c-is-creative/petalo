@@ -40,3 +40,7 @@ The source originals remain unchanged. Deployment, commit and push are not part 
 ## Editorial update — 2026-10-06
 
 Added 00 Manifesto from the supplied Manifesto.pdf. Rebuilt 03 About from all nine pages of about.pdf, using six expandable topics and selected embedded photographs. Preserved the previous About text as 04 Story Behind; Online PETALO is now 05. Added the creative partner credits from 1.jpg and the use cases, 237 supporters, award and direct links from 2.jpg. The supplied For Good logo is reused. Navigation stays English in JP / EN / ES; body copy is translated. The historical Chiba figures are explicitly dated 2021. Additional photographs can replace or supplement the current images.
+
+## Nine-kit collection
+
+The 36 patterns are introduced as nine named kits, in the order supplied on the product insert: Curiosity, Creativity, Calm, Compassion, Courage, Care, Celebration, Continuity and Connection. Each kit pairs four motifs with its short phrase. English kit names remain shared across languages; accompanying phrases are translated. This collection is visible in About without opening a detail panel and links directly to the store. The subtle C-name sequence is left to discovery.

@@ -9,13 +9,6 @@ const copy = {
 };
 Object.assign(copy.en, editorialCopy.en);
 Object.assign(copy.es, editorialCopy.es);
-const gallery = document.getElementById('pattern-gallery');
-for (let i = 1; i <= 36; i++) {
-  const img = document.createElement('img');
-  img.src = `assets/patterns/${String(i).padStart(2, '0')}.png`;
-  img.alt = ''; img.loading = 'lazy'; img.width = 130; img.height = 120;
-  gallery.appendChild(img);
-}
 document.querySelectorAll('[data-t]').forEach(el => { copy.ja[el.dataset.t] = el.innerHTML; });
 document.querySelectorAll('[data-alt]').forEach(el => { copy.ja[el.dataset.alt] = el.alt; });
 Object.assign(copy.ja,{canvasLabel:'描画用の紙。クリック、または矢印キーで移動してEnterで模様を押します。',pattern:'模様',stamped:'模様を押しました。',cleared:'紙をクリアしました。',saved:'画像を保存しました。',undone:'最後の模様を戻しました。'});
