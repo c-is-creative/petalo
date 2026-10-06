@@ -33,3 +33,10 @@ Object.assign(editorialCopy.en, {"newsIntro": "A co-creative project, made possi
 Object.assign(editorialCopy.es, {"newsIntro": "Un proyecto de cocreación que fue posible gracias a 237 personas."});
 
 for (const lang of ["en", "es"]) editorialCopy[lang].newAboutIntro = editorialCopy[lang].newAboutIntro.replaceAll("</p><p>", " ");
+
+Object.assign(editorialCopy.en, {"woodCloseAlt": "A close view of PETALO wood grain and stamp patterns"});
+
+Object.assign(editorialCopy.es, {"woodCloseAlt": "Detalle de la veta y los patrones de PETALO"});
+
+Object.assign(editorialCopy.en,{patternEndsAlt:"PETALO stamp patterns visible on handles arranged in a wooden bowl"});
+Object.assign(editorialCopy.es,{patternEndsAlt:"Patrones de PETALO visibles en los mangos dispuestos en un cuenco de madera"});

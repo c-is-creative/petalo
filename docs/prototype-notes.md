@@ -48,3 +48,17 @@ The 36 patterns are introduced as nine named kits, in the order supplied on the 
 ## Short visual landing page — revised brief
 
 Manifesto shows only its title and promise; Read more opens the complete text. Shop uses five supplied product photos without captions, with two store links opening a new tab. Verified at 390×844 and 320×568: the complete shop section is below three viewport heights in JP/EN/ES. JP question labels match English; ES stays Spanish. About opening copy is one paragraph. The name origin opens with + over a faint monochrome flower background; other About editorial photographs use grayscale until replacement assets arrive. The nine-kit collection is expandable. Online PETALO follows the About use cases directly with the same background. Story Behind and Creative Partners open on demand lower on the page. The duplicate C’s CREATIVE / NHUMA signature is removed. Compact News follows the supplied screenshot’s order, with the award title, logo, 237 supporters, introductory paragraph and four links; award explanation opens with Read more.
+
+## Additional product photographs
+
+Nine supplied Nanami photographs were optimized for web use; originals remain untouched. Shop keeps its existing kit, objects and package photographs. Two images previously repeated from other sections are replaced with pattern-ends and wood-close. The other supplied photos are available for future placement without lengthening the page. Source mapping:
+
+- 260607113240.jpg → assets/photos/basket.jpg
+- 260607154730-2.jpg → assets/photos/studio-light.jpg
+- 260607155557.jpg → assets/photos/pattern-ends.jpg
+- 260607170739.jpg → assets/photos/kit-close.jpg
+- 260607170914.jpg → assets/photos/kit-table.jpg
+- 260607170933.jpg → assets/photos/kit-detail.jpg
+- 260607171738.jpg → assets/photos/wood-sticks.jpg
+- 260607171812.jpg → assets/photos/quiet-table.jpg
+- 260607171847.jpg → assets/photos/wood-close.jpg
