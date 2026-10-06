@@ -35,3 +35,8 @@ All from the supplied `PETALO_ALL` photo folder:
 | unboxing.jpg | 260607170129.jpg |
 
 The source originals remain unchanged. Deployment, commit and push are not part of this local prototype delivery.
+
+
+## Editorial update — 2026-10-06
+
+Added 00 Manifesto from the supplied Manifesto.pdf. Rebuilt 03 About from all nine pages of about.pdf, using six expandable topics and selected embedded photographs. Preserved the previous About text as 04 Story Behind; Online PETALO is now 05. Added the creative partner credits from 1.jpg and the use cases, 237 supporters, award and direct links from 2.jpg. The supplied For Good logo is reused. Navigation stays English in JP / EN / ES; body copy is translated. The historical Chiba figures are explicitly dated 2021. Additional photographs can replace or supplement the current images.
