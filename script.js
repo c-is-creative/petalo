@@ -68,3 +68,17 @@ function resizeCanvas() {const height=matchMedia('(max-width:700px)').matches?12
 window.addEventListener('resize',resizeCanvas);resizeCanvas();
 let savedLanguage;try {savedLanguage=localStorage.getItem('petalo-language');}catch {}
 setLanguage(new URL(location.href).searchParams.get('lang')||savedLanguage||'ja');
+
+// Open only the disclosures needed by a direct link to a deeper topic.
+function revealLinkedTopic() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  let node = target;
+  while (node) {
+    if (node.tagName === 'DETAILS') node.open = true;
+    node = node.parentElement;
+  }
+  if (target.closest('details')) target.scrollIntoView({block:'start'});
+}
+window.addEventListener('hashchange', revealLinkedTopic);
+revealLinkedTopic();

@@ -4,7 +4,7 @@ A photograph-led, three-language website. Plain HTML, CSS and JavaScript; no bui
 
 ## Files
 
-- `index.html`: homepage with six sections: Manifesto, What is PETALO?, Shop, About, Story Behind and Online PETALO.
+- `index.html`: visual homepage with compact Manifesto, What is PETALO?, Shop and About, followed by Online PETALO, expandable Story Behind and compact News.
 - `styles.css`: warm dark palette, serif typography, responsive layouts.
 - `editorial.js`: new Manifesto and About translations, partner and crowdfunding copy.
 - `script.js`: JP / EN / ES copy, language selection, local drawing canvas.

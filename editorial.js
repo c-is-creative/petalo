@@ -23,3 +23,13 @@ useChildren:'Para el aprendizaje y el juego infantil.',useDialogue:'Para el coac
 // Kit names stay in English, preserving the sequence on the product card.
 Object.assign(editorialCopy.en, {"kit1Phrase": "It begins with curiosity.", "kit2Phrase": "Creativity awakens and comes to life.", "kit3Phrase": "A moment to unwind.", "kit4Phrase": "Welcome difference, just as it is.", "kit5Phrase": "Trust the first step.", "kit6Phrase": "Be kind to yourself, to others, to the Earth.", "kit7Phrase": "Applaud every expression.", "kit8Phrase": "Keep adding small moments of creation.", "kit9Phrase": "Joy circulates as we share.", "kitsTitle": "Follow a pattern. Follow a word.", "kitsIntro": "Choose a pattern that catches your eye, or a word that speaks to you.<br>Nine kits. Find your own beginning.", "kitsShop": "Explore the kits in the store"});
 Object.assign(editorialCopy.es, {"kit1Phrase": "Todo comienza con la curiosidad.", "kit2Phrase": "La creatividad despierta y cobra vida.", "kit3Phrase": "Un momento para relajarse.", "kit4Phrase": "Acoge la diferencia tal como es.", "kit5Phrase": "Confía en el primer paso.", "kit6Phrase": "Cuida de ti, de los demás y de la Tierra.", "kit7Phrase": "Aplaude cada expresión.", "kit8Phrase": "Sigue sumando pequeños momentos de creación.", "kit9Phrase": "La alegría circula al compartir.", "kitsTitle": "Sigue un patrón. Sigue una palabra.", "kitsIntro": "Elige un patrón que te atraiga o una palabra que te inspire.<br>Nueve kits. Encuentra tu comienzo.", "kitsShop": "Ver los kits en la tienda"});
+
+Object.assign(editorialCopy.en, {"informationTitle": "A little more about PETALO.", "informationLead": "The ideas. The people. The making.<br>Open what interests you.", "kitsLabel": "9 kits · 36 patterns"});
+
+Object.assign(editorialCopy.es, {"informationTitle": "Un poco más sobre PETALO.", "informationLead": "Las ideas. Las personas. La creación.<br>Abre lo que te interese.", "kitsLabel": "9 kits · 36 patrones"});
+
+Object.assign(editorialCopy.en, {"newsIntro": "A co-creative project, made possible by 237 supporters."});
+
+Object.assign(editorialCopy.es, {"newsIntro": "Un proyecto de cocreación que fue posible gracias a 237 personas."});
+
+for (const lang of ["en", "es"]) editorialCopy[lang].newAboutIntro = editorialCopy[lang].newAboutIntro.replaceAll("</p><p>", " ");

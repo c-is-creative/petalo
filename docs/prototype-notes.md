@@ -44,3 +44,7 @@ Added 00 Manifesto from the supplied Manifesto.pdf. Rebuilt 03 About from all ni
 ## Nine-kit collection
 
 The 36 patterns are introduced as nine named kits, in the order supplied on the product insert: Curiosity, Creativity, Calm, Compassion, Courage, Care, Celebration, Continuity and Connection. Each kit pairs four motifs with its short phrase. English kit names remain shared across languages; accompanying phrases are translated. This collection is visible in About without opening a detail panel and links directly to the store. The subtle C-name sequence is left to discovery.
+
+## Short visual landing page — revised brief
+
+Manifesto shows only its title and promise; Read more opens the complete text. Shop uses five supplied product photos without captions, with two store links opening a new tab. Verified at 390×844 and 320×568: the complete shop section is below three viewport heights in JP/EN/ES. JP question labels match English; ES stays Spanish. About opening copy is one paragraph. The name origin opens with + over a faint monochrome flower background; other About editorial photographs use grayscale until replacement assets arrive. The nine-kit collection is expandable. Online PETALO follows the About use cases directly with the same background. Story Behind and Creative Partners open on demand lower on the page. The duplicate C’s CREATIVE / NHUMA signature is removed. Compact News follows the supplied screenshot’s order, with the award title, logo, 237 supporters, introductory paragraph and four links; award explanation opens with Read more.
