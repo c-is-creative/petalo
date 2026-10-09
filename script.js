@@ -16,6 +16,7 @@ let language = 'ja';
 function setLanguage(lang) {
   if (!copy[lang]) lang = 'ja';
   language = lang;
+  document.querySelectorAll("[data-story-link]").forEach(link => { link.href = `story-ddue.html?lang=${lang}`; });
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = copy[lang][el.dataset.t] ?? copy.ja[el.dataset.t]; });
   document.querySelectorAll('[data-alt]').forEach(el => { el.alt = copy[lang][el.dataset.alt]; });

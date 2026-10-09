@@ -40,3 +40,5 @@ html[lang="es"] .name-disclosure [data-t="nameTitle"]{font-weight:600}
 html[lang="es"] .kit-disclosure [data-t="kitsLabel"]{font-weight:600}
 
 .purchase .purchase-uses{margin:22px 0 24px;padding:0;border:0}.purchase .purchase-uses .eyebrow{font-size:10px;margin:0 0 10px}.purchase .purchase-uses ul{grid-template-columns:1fr;gap:3px}.purchase .purchase-uses li{font-size:13px;line-height:1.8}
+
+.ddue-entry{display:grid;grid-template-columns:1.1fr 1fr;gap:8%;align-items:center;margin-top:85px}.ddue-entry img{width:100%;height:auto}.ddue-entry h2{font-size:clamp(28px,3.4vw,43px);margin-bottom:25px}.ddue-entry p:not(.eyebrow){font-size:15px}.ddue-entry .text-link{margin-top:10px}@media(max-width:700px){.ddue-entry{display:block;margin-top:50px}.ddue-entry img{margin-bottom:30px}.ddue-entry h2{font-size:30px}.ddue-entry p:not(.eyebrow){font-size:14px}}

@@ -5,6 +5,7 @@ A photograph-led, three-language website. Plain HTML, CSS and JavaScript; no bui
 ## Files
 
 - `index.html`: visual homepage with compact Manifesto, What is PETALO?, Shop and About, followed by Online PETALO, expandable Story Behind and compact News.
+- `story-ddue.html`, `story-ddue.css`, `story-ddue.js`: D-due co-creation article with JP / EN / ES copy, linked from Story Behind.
 - `styles.css`: warm dark palette, serif typography, responsive layouts.
 - `editorial.js`: new Manifesto and About translations, partner and crowdfunding copy.
 - `script.js`: JP / EN / ES copy, language selection, local drawing canvas.
