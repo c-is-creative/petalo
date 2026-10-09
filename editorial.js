@@ -41,5 +41,5 @@ Object.assign(editorialCopy.es, {"woodCloseAlt": "Detalle de la veta y los patro
 Object.assign(editorialCopy.en,{patternEndsAlt:"PETALO stamp patterns visible on handles arranged in a wooden bowl"});
 Object.assign(editorialCopy.es,{patternEndsAlt:"Patrones de PETALO visibles en los mangos dispuestos en un cuenco de madera"});
 
-Object.assign(editorialCopy.en,{ddueTitle:'Forms that leave<br>room for imagination.',ddueLead:'Without a fixed meaning, each form invites your imagination.<br>PETALO’s patterns grew from a dialogue with D-due.',dduePhotoAlt:'Co-creators gathered around PETALO patterns at NHUMA'});
-Object.assign(editorialCopy.es,{ddueTitle:'Formas que dejan espacio<br>a la imaginación.',ddueLead:'Sin un significado fijo, cada forma invita a imaginar.<br>Los motivos de PETALO nacieron del diálogo con D-due.',dduePhotoAlt:'Co-creadores reunidos en torno a los motivos de PETALO en NHUMA'});
+Object.assign(editorialCopy.en,{ddueTitle:'Forms that leave<br>room for imagination.',ddueLead:'Without a fixed meaning, each form invites your imagination.<br>PETALO’s patterns grew from a dialogue with D-due.',dduePhotoAlt:'Hands layering PETALO patterns on paper'});
+Object.assign(editorialCopy.es,{ddueTitle:'Formas que dejan espacio<br>a la imaginación.',ddueLead:'Sin un significado fijo, cada forma invita a imaginar.<br>Los motivos de PETALO nacieron del diálogo con D-due.',dduePhotoAlt:'Manos estampando motivos de PETALO sobre papel'});
