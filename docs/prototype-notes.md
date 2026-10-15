@@ -62,3 +62,8 @@ Nine supplied Nanami photographs were optimized for web use; originals remain un
 - 260607171738.jpg → assets/photos/wood-sticks.jpg
 - 260607171812.jpg → assets/photos/quiet-table.jpg
 - 260607171847.jpg → assets/photos/wood-close.jpg
+
+
+## Online PETALO kit trial — 2026-10-15 (unpublished)
+The drawing palette now uses all 36 existing motif assets and the nine four-pattern kits from the product insert gallery. An expandable selector supports combining kits; tapping an individual motif adds its parent kit and selects that motif. At least one kit remains available. Stable individual pattern IDs are independent of active kits, so later single-stamp commerce can reference the same IDs without changing saved marks. No single-stamp purchase availability is advertised.
+Rotation supports every integer degree, a live preview, numerical input, and repeat-on-hold direction buttons. Switching kits or language preserves the drawing. PNG export adds a separate 102-pixel footer with the original 658×240 PETALO logo at bottom right (112 pixels wide, 20% smaller than the initial 140 pixels; equal 32-pixel right and bottom margins). The source is downsampled with high-quality smoothing, never enlarged; artwork and keyboard focus indicators are kept separate from the exported logo.
