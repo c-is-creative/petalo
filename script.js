@@ -47,9 +47,18 @@ function render(includeCursor = false) {
     const size = 98;
     ctx.save(); ctx.translate(mark.x*canvas.width,mark.y*canvas.height); ctx.rotate(mark.angle*Math.PI/180); ctx.drawImage(img,-size/2,-size/2,size,size); ctx.restore();
   }
+  renderDrawingPreview();
   if (includeCursor && focused) { ctx.save(); ctx.strokeStyle='#80705b';ctx.setLineDash([4,5]);ctx.strokeRect(keyboardPosition.x*canvas.width-49,keyboardPosition.y*canvas.height-49,98,98);ctx.restore(); }
   document.querySelector('#undo').disabled = marks.length === 0;
   document.querySelector('#clear').disabled = marks.length === 0;
+}
+function renderDrawingPreview(){
+ const preview=document.querySelector('#drawing-preview-canvas');const previewHeight=marks.length?canvas.height:680;if(preview.height!==previewHeight)preview.height=previewHeight;const painter=preview.getContext('2d');
+ painter.fillStyle='#f4efe5';painter.fillRect(0,0,preview.width,preview.height);
+ if(marks.length){painter.drawImage(canvas,0,0,preview.width,preview.height);return;}
+ // An example composition invites play; the actual paper always starts blank.
+ const sample=[ [0,.19,.38,-25],[0,.24,.48,12],[0,.28,.35,38], [4,.32,.57,-20],[4,.39,.63,35], [2,.48,.44,150],[2,.54,.39,-30], [5,.6,.62,65],[5,.64,.56,110], [1,.72,.4,40],[1,.77,.44,15], [6,.8,.63,160], [6,.85,.54,30] ];
+ for(const [id,x,y,angle] of sample){const image=patternImages[id];if(!image?.naturalWidth)continue;painter.save();painter.translate(x*preview.width,y*preview.height);painter.rotate(angle*Math.PI/180);painter.drawImage(image,-49,-49,98,98);painter.restore();}
 }
 // Stable stamp IDs keep individual patterns independent of kit selection.
 const kits = [...document.querySelectorAll('.kit-card')].map((card, index) => ({
@@ -58,9 +67,9 @@ const kits = [...document.querySelectorAll('.kit-card')].map((card, index) => ({
 }));
 const activeKits = new Set([1]);
 const drawingLabels = {
- ja:{chooseKits:'キットを選ぶ',kitHint:'気になるキットを選んで、お試し。複数のキットを組み合わせられます。',left:'左に回転',right:'右に回転',angle:'角度',error:'画像を読み込めませんでした。もう一度お試しください。',onlineText:'キットを選んで、気になる模様をお試し。<br class="online-ja-desktop-break">向きを自由に変えて、画面の上でクリック。<br class="online-ja-desktop-break">キットを組み合わせて、お気に入りを見つけてください。<br class="online-ja-desktop-break">描いた作品は「画像を保存」でダウンロードできます。'},
- en:{chooseKits:'Choose your kits',kitHint:'Try a kit that catches your eye. Combine as many kits as you like.',left:'Rotate left',right:'Rotate right',angle:'Angle',error:'The image could not be loaded. Please try again.',onlineText:'Choose a kit and try its patterns.<br>Turn freely, then click on the canvas.<br>Mix kits to discover your favourites.<br>Download your artwork with “Save image”.'},
- es:{chooseKits:'Elige tus kits',kitHint:'Prueba el kit que te llame la atención. Combina tantos kits como quieras.',left:'Girar a la izquierda',right:'Girar a la derecha',angle:'Ángulo',error:'No se pudo cargar la imagen. Inténtalo de nuevo.',onlineText:'Elige un kit y prueba sus motivos.<br>Gira libremente y haz clic en el lienzo.<br>Combina kits y descubre tus favoritos.<br>Descarga tu obra con «Guardar imagen».'}
+ ja:{openDrawing:'描いてみる',closeDrawing:'描画画面を閉じる',chooseKits:'キットを選ぶ',kitHint:'気になるキットを選んで、お試し。複数のキットを組み合わせられます。',left:'左に回転',right:'右に回転',angle:'角度',error:'画像を読み込めませんでした。もう一度お試しください。',onlineText:'キットを選んで、気になる模様をお試し。<br class="online-ja-desktop-break">向きを自由に変えて、画面の上でクリック。<br class="online-ja-desktop-break">キットを組み合わせて、お気に入りを見つけてください。<br class="online-ja-desktop-break">描いた作品は「画像を保存」でダウンロードできます。'},
+ en:{openDrawing:'Start creating',closeDrawing:'Close drawing',chooseKits:'Choose your kits',kitHint:'Try a kit that catches your eye. Combine as many kits as you like.',left:'Rotate left',right:'Rotate right',angle:'Angle',error:'The image could not be loaded. Please try again.',onlineText:'Choose a kit and try its patterns.<br>Turn freely, then click on the canvas.<br>Mix kits to discover your favourites.<br>Download your artwork with “Save image”.'},
+ es:{openDrawing:'Empieza a crear',closeDrawing:'Cerrar el dibujo',chooseKits:'Elige tus kits',kitHint:'Prueba el kit que te llame la atención. Combina tantos kits como quieras.',left:'Girar a la izquierda',right:'Girar a la derecha',angle:'Ángulo',error:'No se pudo cargar la imagen. Inténtalo de nuevo.',onlineText:'Elige un kit y prueba sus motivos.<br>Gira libremente y haz clic en el lienzo.<br>Combina kits y descubre tus favoritos.<br>Descarga tu obra con «Guardar imagen».'}
 };
 Object.entries(drawingLabels).forEach(([lang,labels]) => Object.assign(copy[lang],labels));
 for (let i=0;i<36;i++) {
@@ -71,6 +80,7 @@ function selectPattern(id) {
  selected=id;
  document.querySelectorAll('.patterns button').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.pattern)===id)));
  document.querySelector('#rotation-preview').src=patternImages[id].src;
+ document.querySelector('#stamp-cursor').src=patternImages[id].src;
  document.querySelectorAll('[data-preview-pattern]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.previewPattern)===id)));
 }
 function renderPalette() {
@@ -81,6 +91,8 @@ function renderPalette() {
   const image=document.createElement('img');image.src=patternImages[id].src;image.alt='';button.append(image);
   button.addEventListener('click',()=>selectPattern(id));palette.append(button);
  }
+ const previewPatterns=document.querySelector('#preview-patterns');previewPatterns.replaceChildren();
+ for(const id of available.slice(0,8)){const image=document.createElement('img');image.src=patternImages[id].src;image.alt='';previewPatterns.append(image);}
  selectPattern(available.includes(selected)?selected:available[0]);
  document.querySelector('#kit-selection').textContent=kits.filter(kit=>activeKits.has(kit.id)).map(kit=>String(kit.id).padStart(2,'0')).join(' · ');
  document.querySelectorAll('.kit-toggle').forEach(button=>button.setAttribute('aria-pressed',String(activeKits.has(Number(button.dataset.kit)))));
@@ -102,7 +114,7 @@ function updateDrawingLabels(){
 }
 renderPalette();
 const rotation=document.querySelector('#rotation');const rotationValue=document.querySelector('#rotation-value');
-function setRotation(value){const angle=((Math.round(Number(value)||0)%360)+360)%360;rotation.value=angle;rotationValue.value=angle;document.querySelector('#rotation-preview').style.transform=`rotate(${angle}deg)`;}
+function setRotation(value){const angle=((Math.round(Number(value)||0)%360)+360)%360;rotation.value=angle;rotationValue.value=angle;document.querySelector('#preview-angle').textContent=`${angle}°`;document.querySelector('#rotation-preview').style.transform=`rotate(${angle}deg)`;document.querySelector('#stamp-cursor').style.transform=`translate(-50%,-50%) rotate(${angle}deg)`;}
 rotation.addEventListener('input',()=>setRotation(rotation.value));rotationValue.addEventListener('input',()=>setRotation(rotationValue.value));
 for(const [id,delta] of [['rotate-left',-1],['rotate-right',1]]){
  const button=document.getElementById(id);let timer;
@@ -112,6 +124,19 @@ for(const [id,delta] of [['rotate-left',-1],['rotate-right',1]]){
  ['pointerup','pointercancel','lostpointercapture','blur'].forEach(type=>button.addEventListener(type,stop));
 }
 function stamp(x,y) { if (!patternImages[selected].naturalWidth) return; marks.push({x,y,pattern:selected,angle:Number(document.querySelector('#rotation').value)});render(focused);announce('stamped'); }
+// DOM-only cursor: never painted into the artwork or exported PNG.
+const stampCursor=document.querySelector('#stamp-cursor');
+function showStampCursor(event){
+ if(event.pointerType!=='mouse'){stampCursor.hidden=true;return;}
+ const rect=canvas.getBoundingClientRect();
+ stampCursor.style.left=`${(event.clientX-rect.left)/rect.width*100}%`;
+ stampCursor.style.top=`${(event.clientY-rect.top)/rect.height*100}%`;
+ stampCursor.hidden=false;
+}
+canvas.addEventListener('pointerenter',showStampCursor);
+canvas.addEventListener('pointermove',showStampCursor);
+canvas.addEventListener('pointerleave',()=>{stampCursor.hidden=true;});
+canvas.addEventListener('pointercancel',()=>{stampCursor.hidden=true;});
 canvas.addEventListener('click',event => {const rect=canvas.getBoundingClientRect();keyboardPosition={x:(event.clientX-rect.left)/rect.width,y:(event.clientY-rect.top)/rect.height};stamp(keyboardPosition.x,keyboardPosition.y);});
 canvas.addEventListener('focus',() => {focused=true;render(true);});canvas.addEventListener('blur',() => {focused=false;render();});
 canvas.addEventListener('keydown',event => {const moves={ArrowLeft:[-.04,0],ArrowRight:[.04,0],ArrowUp:[0,-.04],ArrowDown:[0,.04]};if(moves[event.key]) {event.preventDefault();keyboardPosition.x=Math.max(.05,Math.min(.95,keyboardPosition.x+moves[event.key][0]));keyboardPosition.y=Math.max(.05,Math.min(.95,keyboardPosition.y+moves[event.key][1]));render(true);}else if(event.key==='Enter'||event.key===' ') {event.preventDefault();stamp(keyboardPosition.x,keyboardPosition.y);}});
@@ -133,7 +158,12 @@ document.querySelector('#save').addEventListener('click',async()=>{
   const url=URL.createObjectURL(blob);const link=document.createElement('a');link.download='petalo-my-landscape.png';link.href=url;link.click();setTimeout(()=>URL.revokeObjectURL(url),60000);announce('saved');
  }catch{status.textContent=drawingLabels[language].error;}finally{save.disabled=false;render(focused);}
 });
-function resizeCanvas() {const height=matchMedia('(max-width:700px)').matches?1200:680;if(canvas.height!==height)canvas.height=height;render(focused);}
+const drawingDialog=document.querySelector('#drawing-dialog');
+document.querySelector('#open-drawing').addEventListener('click',()=>{drawingDialog.showModal();document.documentElement.classList.add('drawing-open');resizeCanvas();});
+document.querySelector('#close-drawing').addEventListener('click',()=>drawingDialog.close());
+drawingDialog.addEventListener('close',()=>{document.documentElement.classList.remove('drawing-open');stampCursor.hidden=true;document.querySelector('.kit-picker').open=false;});
+drawingDialog.addEventListener('click',event=>{if(event.target!==drawingDialog)return;const rect=drawingDialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)drawingDialog.close();});
+function resizeCanvas() {const height=matchMedia('(max-width:700px) and (min-height:501px)').matches?1200:680;if(canvas.height!==height)canvas.height=height;render(focused);}
 window.addEventListener('resize',resizeCanvas);resizeCanvas();
 let savedLanguage;try {savedLanguage=localStorage.getItem('petalo-language');}catch {}
 setLanguage(new URL(location.href).searchParams.get('lang')||savedLanguage||'ja');
