@@ -163,7 +163,16 @@ document.querySelector('#open-drawing').addEventListener('click',()=>{drawingDia
 document.querySelector('#close-drawing').addEventListener('click',()=>drawingDialog.close());
 drawingDialog.addEventListener('close',()=>{document.documentElement.classList.remove('drawing-open');stampCursor.hidden=true;document.querySelector('.kit-picker').open=false;});
 drawingDialog.addEventListener('click',event=>{if(event.target!==drawingDialog)return;const rect=drawingDialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)drawingDialog.close();});
-function resizeCanvas() {const height=matchMedia('(max-width:700px) and (min-height:501px)').matches?1200:680;if(canvas.height!==height)canvas.height=height;render(focused);}
+function resizeCanvas() {
+ const rect=document.querySelector('.canvas-area').getBoundingClientRect();
+ if(!rect.width||!rect.height)return;
+ const height=Math.max(1,Math.round(canvas.width*rect.height/rect.width));
+ if(canvas.height!==height)canvas.height=height;
+ render(focused);
+}
+// Match the available paper area, without stretching the stamp graphics.
+const paperResizeObserver=new ResizeObserver(()=>{if(drawingDialog.open)resizeCanvas();});
+paperResizeObserver.observe(document.querySelector('.canvas-area'));
 window.addEventListener('resize',resizeCanvas);resizeCanvas();
 let savedLanguage;try {savedLanguage=localStorage.getItem('petalo-language');}catch {}
 setLanguage(new URL(location.href).searchParams.get('lang')||savedLanguage||'ja');
